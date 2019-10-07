@@ -39,6 +39,7 @@ async def on_message(msg):
         for i in ban_msg:
             if i in msg.content:
                 await msg.delete()
+                await msg.channel.send(f"Don't do this {msg.author.mention}")
                 print(msg.author, " ", msg.content, " DELETED!!!!")
         for i in range(len(string1)):
             string = string + str(string1[i] + " ")
