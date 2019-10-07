@@ -1,35 +1,64 @@
-import discord
 from discord.ext import commands
-from discord.ext.commands import Bot
-from discord import *
 
+d = dict(string='dict', int='dictionary')
+string1 = 'nNНнHh'
+string2 = '!Ii|иИeEеЕе́'
+string3 = 'МмMm'
+string4 = 'еЕэЭeEе́'
 BOT_PREFIX = '/'
-
-Bot = commands.Bot(command_prefix=BOT_PREFIX)
-
-ban_msg = ["anime", "аниме", "Anime", "Аниме", "а н и м е", "А н и м е", "АнИМе", "А Н И М Е", "АНиме", "aниме", "Aнимe", "Aniме", "ониме", "ниме", "нимэ"]
+bot = commands.Bot(command_prefix=BOT_PREFIX)
+ban_msg = ["2д", "2D", "2d", "2Д", ":two:", "2 д", "2 D", "2 d", "2 Д", ":regional_indicator_d:"]
 
 
-@Bot.event
+@bot.event
 async def on_ready():
-    print("Logged in as: " + Bot.user.name + "\n")
+    print("Logged in as: " + bot.user.name + "\n")
 
 
-@Bot.command(pass_context=True)
-async def hello(ctx):
-    await Bot.say("Алех лох")
-
-
-@Bot.event
+@bot.event
 async def on_message(msg):
     try:
+        string = 'ф'
+        string = string[:-1]
+        for i in range(len(string1)):
+            string = string + str(string1[i])
+            for u in range(len(string2)):
+                string = string + str(string2[u])
+                for y in range(len(string3)):
+                    string = string + str(string3[y])
+                    for a in range(len(string4)):
+                        string = string + str(string4[a])
+                        if string in msg.content:
+                            await msg.delete()
+                            await msg.channel.send(f"Don't do this {msg.author.mention}")
+                            print(msg.author, " ", msg.content, " DELETED!!!!")
+                        string = string[:-1]
+                    string = string[:-1]
+                string = string[:-1]
+            string = ''
         for i in ban_msg:
             if i in msg.content:
                 await msg.delete()
-                #channel = msg.channel
-                #await channel.send('Алех лох')
+                print(msg.author, " ", msg.content, " DELETED!!!!")
+        for i in range(len(string1)):
+            string = string + str(string1[i] + " ")
+            for u in range(len(string2)):
+                string = string + str(string2[u] + " ")
+                for y in range(len(string3)):
+                    string = string + str(string3[y] + " ")
+                    for a in range(len(string4)):
+                        string = string + str(string4[a])
+                        if string in msg.content:
+                            await msg.delete()
+                            await msg.channel.send(f"Don't do this {msg.author.mention}")
+                            print(msg.author, " ", msg.content, " DELETED!!!!")
+                        string = string[:-1]
+                    string = string[:-2]
+                string = string[:-2]
+            string = ''
     except():
         oo = 2
+        print(oo)
 
 
-Bot.run('NjI4NjY3NDQzMzc1NjM2NTAw.XZOinQ.xg29akjTEeC0daSKfSM1bByGHjc')
+bot.run('NjI4NjY3NDQzMzc1NjM2NTAw.XZOinQ.xg29akjTEeC0daSKfSM1bByGHjc')
