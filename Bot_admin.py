@@ -62,4 +62,5 @@ async def on_message(msg):
         print(oo)
 
 
-bot.run('NjI4NjY3NDQzMzc1NjM2NTAw.XZOinQ.xg29akjTEeC0daSKfSM1bByGHjc')
+b_token = os.environ.get('Token')
+bot.run(str(b_token))
