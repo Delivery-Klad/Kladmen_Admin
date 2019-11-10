@@ -1,7 +1,6 @@
 from discord.ext import commands
 import os
 
-d = dict(string='dict', int='dictionary')
 string1 = 'nNНнHh'
 string2 = '!Ii|иИeEеЕе́'
 string3 = 'МмMm'
