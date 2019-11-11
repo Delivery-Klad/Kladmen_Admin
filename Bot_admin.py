@@ -1,5 +1,6 @@
 from discord.ext import commands
 import os
+import time
 
 string1 = 'nNНнHh'
 string2 = '!Ii|иИeEеЕе́'
@@ -17,6 +18,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(msg):
+    StartTime = time.time()
     try:
         string = 'ф'
         string = string[:-1]
@@ -31,7 +33,7 @@ async def on_message(msg):
                         if string in msg.content:
                             await msg.delete()
                             await msg.channel.send(f"Don't do this {msg.author.mention}")
-                            print(msg.author, " ", msg.content, " DELETED!!!!")
+                            print(msg.author, " ", msg.content, " DELETED!!!!", time.time() - StartTime)
                         string = string[:-1]
                     string = string[:-1]
                 string = string[:-1]
@@ -52,7 +54,7 @@ async def on_message(msg):
                         if string in msg.content:
                             await msg.delete()
                             await msg.channel.send(f"Don't do this {msg.author.mention}")
-                            print(msg.author, " ", msg.content, " DELETED!!!!")
+                            print(msg.author, " ", msg.content, " DELETED!!!!", time.time() - StartTime)
                         string = string[:-1]
                     string = string[:-2]
                 string = string[:-2]
