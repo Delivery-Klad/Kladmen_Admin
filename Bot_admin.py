@@ -1,3 +1,4 @@
+import discord
 from discord.ext import commands
 import os
 import time
@@ -14,6 +15,8 @@ ban_msg = ["2д", "2D", "2d", "2Д", ":two:", "2 д", "2 D", "2 d", "2 Д", ":re
 @bot.event
 async def on_ready():
     print("Logged in as: " + bot.user.name + "\n")
+    game = discord.Game("Симулятор бана")
+    await bot.change_presence(activity=game)
 
 
 @bot.event
