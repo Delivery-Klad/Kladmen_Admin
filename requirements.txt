@@ -1,5 +1,5 @@
 discord==1.0.1
 discord.py==1.4.1
-aiohttp==3.6.2
+aiohttp==3.7.4
 websockets==6.0
 chardet==3.0.4
