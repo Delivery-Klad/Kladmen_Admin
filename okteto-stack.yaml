@@ -1,0 +1,9 @@
+services:
+  bot:
+    public: true
+    image: deliveryklad/admin:latest
+    build: .
+    replicas: 1
+    resources:
+      cpu: 500m
+      memory: 512Mi
