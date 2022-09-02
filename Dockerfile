@@ -1,7 +1,5 @@
 FROM python:3.8
 
-ENV Token=
-
 ADD requirements.txt /requirements.txt
 ADD Bot_admin.py /main.py
 ADD okteto-stack.yaml /okteto-stack.yaml

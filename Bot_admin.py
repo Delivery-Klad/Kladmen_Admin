@@ -4,7 +4,7 @@ import os
 import time
 
 BOT_PREFIX = '/'
-bot = commands.Bot(command_prefix=BOT_PREFIX, intents=discord.Intents.default())
+bot = commands.Bot(command_prefix=BOT_PREFIX, intents=discord.Intents.all())
 
 
 @bot.event
@@ -14,5 +14,9 @@ async def on_ready():
     await bot.change_presence(activity=game)
 
 
-b_token = os.environ.get('Token')
-bot.run(str(b_token))
+@bot.event
+async def on_message(ctx):
+    print(ctx.content)
+
+
+bot.run(os.environ.get('Token'))

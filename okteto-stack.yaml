@@ -4,6 +4,8 @@ services:
     image: deliveryklad/admin:latest
     build: .
     replicas: 1
+    environment:
+      Token: $Admin_token
     resources:
-      cpu: 500m
-      memory: 512Mi
+      cpu: 300m
+      memory: 256Mi
