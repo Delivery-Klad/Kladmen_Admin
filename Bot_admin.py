@@ -92,7 +92,7 @@ async def test(interaction: discord.Interaction, test: str):
 
 keep_alive()
 try:
-    bot.run(os.environ.get('Token'))
+    bot.run(os.environ.get('token'))
 except discord.errors.HTTPException:
     print("\nBLOCKED BY RATE LIMITS\nRESTARTING NOW\n")
     os.system("python restarter.py")
