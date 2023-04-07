@@ -90,7 +90,6 @@ async def on_ready():
 async def test(interaction: discord.Interaction, test: str):
     await interaction.response.send_message("test")
 
-"""
 keep_alive()
 try:
     bot.run(os.environ.get('Token'))
@@ -98,4 +97,3 @@ except discord.errors.HTTPException:
     print("\nBLOCKED BY RATE LIMITS\nRESTARTING NOW\n")
     os.system("python restarter.py")
     os.system('kill 1')
-"""
