@@ -4,3 +4,4 @@ aiohttp
 websockets
 chardet
 flask
+requests
