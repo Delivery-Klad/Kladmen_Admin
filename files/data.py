@@ -1,3 +1,21 @@
+roles = {
+    "rainbow_six": "Rainbow Six",
+    "WarZone": "WarZone",
+    "gta": "GTA V",
+    "PUBG": "PUBG",
+    "🧟": "Dayz",
+    "🚗": "Forza",
+    "Tarkov": "Тапков",
+    "CSGO": "CS:GO",
+    "🏴\u200d☠️": "Пират",
+    "🔪": "DBD",
+    "🚚": "ETS",
+    "apex": "Apex",
+    "💩": "Valorant",
+    "Bad_Klass": "Амогус",
+    "Distorted_Clown": "quotes"
+}
+
 alphabet = {
     "a": "\U0001F1E6",
     "b": "\U0001F1E7",
