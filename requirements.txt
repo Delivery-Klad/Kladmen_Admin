@@ -3,3 +3,4 @@ discord.py
 aiohttp
 websockets
 chardet
+git+https://github.com/Rapptz/discord.py
