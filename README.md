@@ -9,6 +9,8 @@
 |aiohttp          |
 |websockets       |
 |chardet          |
+|flask            |
+|requests         |
 
 ### Heroku variables:
 |Name  |Value      |
