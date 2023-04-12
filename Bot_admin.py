@@ -85,7 +85,7 @@ def detect_text(url):
     headers = {"X-Api-Key": os.environ.get("recog_key")}
     result = requests.post("https://api.api-ninjas.com/v1/imagetotext", files={'image': img_data}, headers=headers)
     for i in result.json():
-        words.append(i["text"])
+        words.append(i["text"].lower())
     return words
 
 
