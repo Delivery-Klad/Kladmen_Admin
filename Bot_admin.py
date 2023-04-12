@@ -77,6 +77,18 @@ async def get_message(interaction: discord.Interaction, msg_id: str):
         return None
 
 
+def detect_text(url):
+    words = []
+    img_data = b""
+    for chunk in requests.get(url, stream=True):
+        img_data += chunk
+    headers = {"X-Api-Key": os.environ.get("recog_key")}
+    result = requests.post("https://api.api-ninjas.com/v1/imagetotext", files={'image': img_data}, headers=headers)
+    for i in result.json():
+        words.append(i["text"])
+    return words
+
+
 @bot.event
 async def on_ready():
     preload()
@@ -203,12 +215,19 @@ async def on_message(ctx: discord.message.Message):
             result_tags.sort()
             permitted_tags.sort()
             all_tags.sort()
+            
+            text_recognition = detect_text(att)
+            recognition_result = "anime" in text_recognition or "аниме" in text_recognition
             await log(f"Attachment: {att}\n"
-                      f"**`Triggered tags ({tags_counter}):`** {result_tags}\n"
+                      f"**Imagga**\n**`Triggered tags ({tags_counter}):`** {result_tags}\n"
                       f"**`Permitted tags ({tags_counter2}):`** {permitted_tags}\n"
                       f"**`'anime' in image url:`** {in_url}\n"
                       f"**`Anime image detected:`** {result}\n"
-                      f"\n**`All image tags:`** {all_tags}")
+                      f"**`All image tags:`** {all_tags}\n"
+                      f"**Text recognition**\n"
+                      f"**`Text on image:`** {text_recognition}\n"
+                      f"**`Anime detected:`** {recognition_result}\n"
+                      f"**`Summary:`** Anime detected {recognition_result or in_url or result}")
     except Exception as e:
         await log("Error in image tagging\n\n" + str(e))
 
