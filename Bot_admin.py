@@ -11,12 +11,13 @@ from webserver import keep_alive
 from files.data import alphabet, alphabet_variants, alphabet_addiotional, ban_tags, stop_tags, roles
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
-log_cannel = None
+log_cannel, role_msg_id = None, None
 
 
 def preload():
-    global log_cannel
+    global log_cannel, role_msg_id
     log_cannel = bot.get_channel(855557026712780826)
+    role_msg_id = 938723422773592134
 
 
 async def log(text, type="Info"):
