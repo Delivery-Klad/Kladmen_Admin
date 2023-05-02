@@ -13,7 +13,8 @@ roles = {
     "apex": "Apex",
     "💩": "Valorant",
     "Bad_Klass": "Амогус",
-    "Distorted_Clown": "quotes"
+    "Distorted_Clown": "quotes",
+    "Horse": "Посмотреть на зоопарк"
 }
 
 alphabet = {
