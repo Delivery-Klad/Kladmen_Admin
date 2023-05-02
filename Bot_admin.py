@@ -8,7 +8,7 @@ from discord.ext import commands
 from discord.utils import get
 
 from webserver import keep_alive
-from files.data import alphabet, alphabet_variants, alphabet_addiotional, ban_tags, stop_tags
+from files.data import alphabet, alphabet_variants, alphabet_addiotional, ban_tags, stop_tags, roles
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 log_cannel = None
@@ -230,6 +230,24 @@ async def on_message(ctx: discord.message.Message):
                       f"**`Summary:`** Anime detected {recognition_result or in_url or result}")
     except Exception as e:
         await log("Error in image tagging\n\n" + str(e))
+
+        
+@bot.event
+async def on_raw_reaction_add(ctx):
+    if ctx.message_id == role_msg_id:
+        _member = ctx.member
+        role = discord.utils.get(_member.guild.roles, name=roles[ctx.emoji.name])
+        await _member.add_roles(role)
+        await log(f"`'{_member}'` выбрал роль `'{role}'`")
+
+
+@bot.event
+async def on_raw_reaction_remove(ctx):
+    if ctx.message_id == role_msg_id:
+        _member = get(bot.get_all_members(), id=ctx.user_id)
+        role = discord.utils.get(_member.guild.roles, name=roles[ctx.emoji.name])
+        await _member.remove_roles(role)
+        await log(f"`'{_member}'` убрал роль `'{role}'`")
 
 
 keep_alive()
