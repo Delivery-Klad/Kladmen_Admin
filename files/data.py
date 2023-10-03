@@ -6,7 +6,7 @@ roles = {
     "🧟": "Dayz",
     "🚗": "Forza",
     "Tarkov": "Тапков",
-    "CSGO": "CS:GO",
+    "CSGO": "CS 2",
     "🏴\u200d☠️": "Пират",
     "🔪": "DBD",
     "🚚": "ETS",
