@@ -189,6 +189,7 @@ async def approve_user(interaction: discord.Interaction, user: str):
 
 @bot.event
 async def on_message(ctx: discord.message.Message):
+    return
     try:
         for att in ctx.attachments:
             print(att)
