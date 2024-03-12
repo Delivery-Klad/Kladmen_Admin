@@ -191,10 +191,13 @@ async def approve_user(interaction: discord.Interaction, user: str):
 async def on_message(ctx: discord.message.Message):
     try:
         for att in ctx.attachments:
+            print(att)
             response = requests.get(
                 f'https://api.imagga.com/v2/tags?image_url={att}',
                 auth=(os.environ.get('img_key'), os.environ.get('img_pass')), timeout=15
             )
+            print(response.status_code)
+            print(response.text)
             output = json.loads(response.text)
             all_tags = []
             tags_counter, tags_counter2 = 0, 0
